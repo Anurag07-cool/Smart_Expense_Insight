@@ -5,3 +5,4 @@ numpy
 reportlab
 Werkzeug
 python-dotenv
+gunicorn

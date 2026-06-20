@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card p-4">
+            <h4 class="mb-4">Generate Report</h4>
+            <form action="{{ url_for('report.generate_report') }}" method="POST">
+                <div class="mb-3">
+                    <label>Select Month</label>
+                    <input type="month" name="month" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100"><i class="fas fa-file-pdf"></i> Generate PDF Report</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        <div class="card p-4">
+            <h4 class="mb-4">Generated Reports</h4>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Generated On</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for report in reports %}
+                        <tr>
+                            <td>{{ report.month }}/{{ report.year }}</td>
+                            <td>{{ report.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td>
+                                <a href="{{ url_for('report.download_report', filename=report.filename) }}" class="btn btn-sm btn-success">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="3" class="text-center py-4">No reports generated yet.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

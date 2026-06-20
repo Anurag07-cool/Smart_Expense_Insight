@@ -1,0 +1,30 @@
+[
+  {
+    "description": "Dominos Pizza",
+    "amount": 450,
+    "category": "Food",
+    "payment_mode": "UPI",
+    "date": "2023-10-15"
+  },
+  {
+    "description": "Uber Ride",
+    "amount": 200,
+    "category": "Transport",
+    "payment_mode": "Credit Card",
+    "date": "2023-10-16"
+  },
+  {
+    "description": "Amazon Headphones",
+    "amount": 1500,
+    "category": "Shopping",
+    "payment_mode": "Debit Card",
+    "date": "2023-10-20"
+  },
+  {
+    "description": "Netflix Subscription",
+    "amount": 649,
+    "category": "Entertainment",
+    "payment_mode": "Credit Card",
+    "date": "2023-10-22"
+  }
+]
